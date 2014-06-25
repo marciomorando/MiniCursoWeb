@@ -54,7 +54,8 @@ class Bebida extends Controller{
     
     public function apagar(){
         $bebidasModel = new BebidaModel();
-        $bebidasModel->apagarId("1");
+        $id = $this->getVar('id');
+        $bebidasModel->apagarId($id);
     }
 }
 ?>

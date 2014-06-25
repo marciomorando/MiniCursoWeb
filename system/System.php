@@ -52,12 +52,17 @@ class System{
                 $i++;
             }
             
+            $this->vars = array_combine($nome, $valor);
             
         }
     }
+    
+    public function getVar($var){
+        
+        return $this->vars[$var];
+    }
 
-
-    public function run($param) {
+        public function run($param) {
         
         require_once ("app/controllers/" . $this->controller . "Controller.php");
         

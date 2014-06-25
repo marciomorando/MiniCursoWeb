@@ -17,11 +17,11 @@ and open the template in the editor.
         <?php
         
         
-        for($i = 0; $i < count($linhas); $i++){
+        for($i = 0; $i < count($linhas) ; $i++){
         
         print($linhas[$i]['ID'] . " - " . $linhas[$i]['NOME']);
         
-        print(" <a href='/minicurso/bebida/apagar'> x</a>");
+        print(" <a href='/minicurso/bebida/apagar/ID/'.$linhas[$i]['ID'].''> x</a>");
         
         print("<br>");
         

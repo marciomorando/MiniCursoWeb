@@ -1,6 +1,6 @@
 <?php
 
-class Controller{
+class Controller extends System{
     public function view ($nome, $dados){
         
         extract($dados);

@@ -48,6 +48,8 @@ class BebidaModel extends Model {
     public function apagarId($id){
     
         $this->delete("bebida", "id = ". $id);
+        
+         header("Location: /minicurso/bebida/listar");
     } 
     
 }
