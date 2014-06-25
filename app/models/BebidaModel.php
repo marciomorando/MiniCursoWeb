@@ -20,6 +20,34 @@ class BebidaModel extends Model {
         );
         
         $this->insert('BEBIDA',$dados);
+        
+        header("Location: /minicurso/bebida/listar");
     }
+    
+    public function consultarBebidas(){
+        
+        return $this->select("bebida");
+    }
+    
+    public function consultarBebida($id){
+        
+        return $this->select("bebida", "id = ".$id);
+    }
+    
+    public function alterarNome($id, $nome){
+        
+        $dados = array(
+            
+          "nome" => $nome
+        
+        );
+        
+        $this->update("bebida", $dados, "id = ". $id);
+    }
+    
+    public function apagarId($id){
+    
+        $this->delete("bebida", "id = ". $id);
+    } 
     
 }

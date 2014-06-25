@@ -37,4 +37,42 @@ mysql_select_db("minicurso");
             mysql_query($sql);
         
     }
+    
+    public function select($tabela, $where = null){
+        
+        
+        $where = ( $where != null ? " WHERE ".$where : '' );
+        
+        $sql = "SELECT * FROM ". $tabela. $where .";";
+        
+        $result = mysql_query($sql);
+        
+        //transformar o result em array
+        while($linha = mysql_fetch_assoc($result))
+                $result_array[] = $linha;
+        
+            return($result_array);
+    }
+    
+    public function update($tabela , Array $dados, $where){
+        
+        foreach ($dados as $key => $value){
+            $sets[] = $key ." = '". $value ."'";
+            
+        }
+        
+        $sets = implode(", ", $sets);
+        
+        $sql = "UPDATE ". $tabela ." SET ". $sets ." WHERE ". $where. ";";
+        
+        mysql_query($sql);
+        
+}
+
+        protected function delete($tabela, $where){
+            
+            $sql = "DELETE FROM". $tabela ." WHERE ". $where .";";
+            mysql_query($sql);
+                    
+        }
 }

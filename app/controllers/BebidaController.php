@@ -9,17 +9,52 @@ class Bebida extends Controller{
 
     public function listar(){
         
-        $this->view("bebida-listar");
-        
+           $bebidasModel = new BebidaModel();
+          $result = $bebidasModel->consultarBebidas();
+          
+            $dados['linhas'] = $result;
+            
+            $this->view("bebida-listar",$dados);    
+     
     }
     
     public function incluir(){
         
         
+       // $bebidasModel = new BebidaModel();
+       // $bebidasModel->inserirBebida("2", "Coca Cola");
+        $this->view("bebida-incluir");
+        
+        
+    }
+    
+    public function efetiva_inclusao(){
+        
+        $bebidaModel = new BebidaModel();
+        $bebidaModel->inserirBebida($_POST['id'],$_POST['nome']);        
+    }
+    
+      public function listar1(){
+        
+           $bebidasModel = new BebidaModel();
+          $result = $bebidasModel->consultarBebida('1');
+          
+            $dados['linhas'] = $result;
+            
+            $this->view("bebida-listar",$dados);    
+     
+    }
+    
+    public function alterar(){
+        
         $bebidasModel = new BebidaModel();
-        $bebidasModel->inserirBebida("1", "Pepsi");
+        $bebidasModel->alterarNome("1", "caipirinha");
         
-        
+    }
+    
+    public function apagar(){
+        $bebidasModel = new BebidaModel();
+        $bebidasModel->apagarId("1");
     }
 }
 ?>

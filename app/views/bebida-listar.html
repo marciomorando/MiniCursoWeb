@@ -11,6 +11,23 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width">
     </head>
     <body>
-        <div>View para Listar Bebidas</div>
+        
+        <a href="/minicurso/bebida/incluir/">Incluir</a>
+        <br>
+        <?php
+        
+        
+        for($i = 0; $i < count($linhas); $i++){
+        
+        print($linhas[$i]['ID'] . " - " . $linhas[$i]['NOME']);
+        
+        print(" <a href='/minicurso/bebida/apagar'> x</a>");
+        
+        print("<br>");
+        
+        }
+        
+        
+        ?>
     </body>
 </html>
