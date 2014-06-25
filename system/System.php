@@ -6,6 +6,7 @@ class System{
     public $urlExplodida;
     public $controller;
     public $action;
+    public $vars;
     
     public function __construct(){
         
@@ -13,6 +14,7 @@ class System{
         $this->setUrlExplodida();
         $this->setController();
         $this->setAction();
+        $this->setVars();
 }
     
     public function setUrl(){
@@ -34,6 +36,27 @@ class System{
         $this->action = ($this->urlExplodida[1] == '' ? "index" : $this->urlExplodida[1]);
     }
     
+    public function setVars(){
+        unset($this->urlExplodida[0],  $this->urlExplodida[1]);
+        
+        if(!empty($this->urlExplodida)){
+            
+            $i = 0;
+            foreach ($this->urlExplodida as $elemento){
+                
+                if($i % 2 == 0)
+                $nome[] = $elemento;
+                else
+                   $valor[] = $elemento;
+                
+                $i++;
+            }
+            
+            
+        }
+    }
+
+
     public function run($param) {
         
         require_once ("app/controllers/" . $this->controller . "Controller.php");
