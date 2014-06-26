@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <h1>Alteracao de Bebida</h1>
+         <form method="POST" action="/minicurso/bebida/efetiva_alteracao">
+          
+            <label>ID: <?php print($linhas[0]["ID"]);?></label>
+            <br>
+<?php print('<input type="hidden" name="id" value="'.$linhas[0]["ID"].'" />');?>             
+      
+            <br>
+            
+            <label>Nome:</label>
+            <br>
+            <input type="text" name="nome" required/>
+            <br>
+            <input type="submit" value="alterar" />
+            
+        </form>
+    </body>
+</html>

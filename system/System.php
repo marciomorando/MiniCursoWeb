@@ -54,6 +54,7 @@ class System{
             
             $this->vars = array_combine($nome, $valor);
             
+            
         }
     }
     

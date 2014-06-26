@@ -43,6 +43,8 @@ class BebidaModel extends Model {
         );
         
         $this->update("bebida", $dados, "id = ". $id);
+        
+            header("Location: /minicurso/bebida/listar");
     }
     
     public function apagarId($id){

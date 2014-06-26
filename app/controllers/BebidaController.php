@@ -47,14 +47,31 @@ class Bebida extends Controller{
     
     public function alterar(){
         
+       
+        $id = $this->getVar('id');
+        
+         $bebidasModel = new BebidaModel();
+        $result = $bebidasModel->consultarBebida($id);
+        
+          $dados['linhas'] = $result;
+            
+          $this->view("bebida-alterar", $dados);   
+    }
+
+
+    public function efetiva_alteracao(){
         $bebidasModel = new BebidaModel();
-        $bebidasModel->alterarNome("1", "caipirinha");
+        
+        $bebidasModel->alterarNome($_POST['id'], $_POST['nome']);
+     
         
     }
     
     public function apagar(){
+        
         $bebidasModel = new BebidaModel();
         $id = $this->getVar('id');
+        
         $bebidasModel->apagarId($id);
     }
 }

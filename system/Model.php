@@ -71,8 +71,9 @@ mysql_select_db("minicurso");
 
         protected function delete($tabela, $where){
             
-            $sql = "DELETE FROM". $tabela ." WHERE ". $where .";";
+            $sql = " DELETE FROM ". $tabela ." WHERE ". $where .";";
             mysql_query($sql);
+            
                     
         }
 }
